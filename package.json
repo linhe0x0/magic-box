@@ -1,0 +1,24 @@
+{
+  "name": "magic-box",
+  "private": true,
+  "main": "index.js",
+  "description": "> Node.js helper packages that don't really deserve their own repos.",
+  "keywords": [],
+  "version": "0.1.0",
+  "author": "sqrtthree <imsqrtthree@gmail.com>",
+  "homepage": "https://github.com/sqrthree/magic-box#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sqrthree/magic-box.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sqrthree/magic-box/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
