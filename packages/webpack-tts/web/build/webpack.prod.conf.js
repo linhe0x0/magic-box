@@ -1,3 +1,4 @@
+const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -28,7 +29,12 @@ module.exports = merge(baseWebpackConfig, {
             },
           },
           'postcss-loader',
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              outputStyle: 'compressed',
+            },
+          },
         ],
       },
     ],
@@ -36,8 +42,8 @@ module.exports = merge(baseWebpackConfig, {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].[hash].css',
-      chunkFilename: 'styles/[id].[hash].css',
+      filename: 'styles/[name].[contenthash].css',
+      chunkFilename: 'styles/[id].[contenthash].css',
     }),
 
     // copy custom static assets
