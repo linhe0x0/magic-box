@@ -1,9 +1,9 @@
 // https://github.com/michael-ciniawsky/postcss-load-config
 module.exports = {
   plugins: {
-    'postcss-import': {},
-    'postcss-url': {},
-    // to edit target browsers: use "browserslist" field in package.json
-    autoprefixer: {},
+    autoprefixer: {
+      browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 8'],
+      flexbox: 'no-2009',
+    },
   },
 }
