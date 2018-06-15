@@ -4,7 +4,7 @@ module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: '',
-    assetsPublicPath: '/static',
+    assetsPublicPath: '/static/',
     proxyTable: {
       '/api': {
         target: 'http://www.example.org',
@@ -39,7 +39,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: '',
-    assetsPublicPath: '/static',
+    assetsPublicPath: '/static/',
 
     /**
      * Source Maps
