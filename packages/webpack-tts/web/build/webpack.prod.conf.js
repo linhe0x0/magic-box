@@ -1,9 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const baseWebpackConfig = require('./webpack.base.conf')
 const config = require('../config')
@@ -59,4 +61,16 @@ module.exports = merge(baseWebpackConfig, {
     // generate a manifest.json file in root output directory with a mapping of all source file names to their corresponding output file
     new ManifestPlugin(),
   ],
+
+  // https://github.com/webpack-contrib/mini-css-extract-plugin#minimizing-for-production
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: config.build.productionSourceMap,
+      }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+  },
 })
