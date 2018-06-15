@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 
 const baseWebpackConfig = require('./webpack.base.conf')
 const config = require('../config')
@@ -54,5 +55,8 @@ module.exports = merge(baseWebpackConfig, {
         ignore: ['.*'],
       },
     ]),
+
+    // generate a manifest.json file in root output directory with a mapping of all source file names to their corresponding output file
+    new ManifestPlugin(),
   ],
 })
