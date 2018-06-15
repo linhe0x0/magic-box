@@ -47,7 +47,7 @@ module.exports = merge(baseWebpackConfig, {
     },
     logLevel: 'silent',
     open: config.dev.autoOpenBrowser && {
-      path: config.dev.assetsPublicPath + 'scripts/index.js',
+      path: config.dev.assetsPublicPath + 'index.js',
     },
     add: (app, middleware, options) => {
       Object.keys(config.dev.proxyTable).forEach(prefixURL => {

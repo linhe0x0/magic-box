@@ -12,8 +12,8 @@ module.exports = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
 
   output: {
-    filename: 'scripts/[name].[chunkhash].js',
-    chunkFilename: 'scripts/[id].[chunkhash].js',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[id].[chunkhash].js',
   },
 
   module: {
@@ -43,8 +43,8 @@ module.exports = merge(baseWebpackConfig, {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].[contenthash].css',
-      chunkFilename: 'styles/[id].[contenthash].css',
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css',
     }),
 
     // copy custom static assets

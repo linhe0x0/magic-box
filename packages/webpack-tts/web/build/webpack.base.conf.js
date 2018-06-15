@@ -29,7 +29,7 @@ module.exports = {
       process.env.NODE_ENV === 'production'
         ? config.build.assetsPublicPath
         : config.dev.assetsPublicPath,
-    filename: 'scripts/[name].js',
+    filename: '[name].js',
     path: config.build.assetsRoot,
   },
   resolve: {
