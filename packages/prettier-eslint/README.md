@@ -7,5 +7,5 @@ Integrating Prettier with ESLint.
 ## Usage
 
 ```
-curl -L https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/prettier-eslint/install.sh | sh
+curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/prettier-eslint/install.sh | sh
 ```
