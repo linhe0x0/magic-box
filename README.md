@@ -16,9 +16,14 @@
 
 > Configure Nginx as a web server and reverse proxy for Nodejs application.
 
-
 #### [prettier-eslint](./packages/prettier-eslint)
 
 [![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)](./packages/prettier-eslint)
 
 > Integrating Prettier with ESLint.
+
+#### [webpack-tts](./packages/webpack-tts)
+
+[![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)](./packages/webpack-tts)
+
+> Webpack template for traditional technology stack. No react, No vue, But babel and Scss.
