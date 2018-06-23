@@ -1,0 +1,13 @@
+{
+  "name": "koa-manifest",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dynamically load assets into your views from your `manifest.json` manifest revision file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "sqrtthree <imsqrtthree@gmail.com>",
+  "license": "MIT"
+}

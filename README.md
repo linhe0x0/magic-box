@@ -27,3 +27,9 @@
 [![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)](./packages/webpack-tts)
 
 > Webpack template for traditional technology stack. No react, No vue, But babel and Scss.
+
+#### [koa-manifest](./packages/koa-manifest)
+
+[![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)]()
+
+> Dynamically load assets into your views from your `manifest.json` manifest revision file.
