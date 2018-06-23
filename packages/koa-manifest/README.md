@@ -23,7 +23,7 @@ const app = new Koa()
 // ... some codes.
 
 app.use(
-  koaManifest({
+  koaManifestMiddleware({
     manifest: path.resolve(__dirname, 'web/dist/manifest.json'),
     prepend: '',
     proxy:
