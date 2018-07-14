@@ -5,11 +5,11 @@
 1. Use curl or wget to download this file into the nginx configuration directory.
 
 ```bash
-curl https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/nginx-to-node/app.conf -o app.conf
+curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/nginx-to-node/app.conf -o app.conf && echo "\033[32m[✔]\033[0m Done."
 ```
 
 ```bash
-wget https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/nginx-to-node/app.conf -O app.conf
+wget -q --show-progress https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/nginx-to-node/app.conf -O app.conf && echo "\033[32m[✔]\033[0m Done."
 ```
 
 2. Adjust with your own configuration like `server_name`, `root`. (Maybe you also need to adjust the port and log dir.)

@@ -9,7 +9,7 @@
 ```bash
 mkdir -p middlewares/koa-manifest
 
-curl https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/koa-manifest/index.js -o middlewares/koa-manifest/index.js
+curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/koa-manifest/index.js -o middlewares/koa-manifest/index.js && echo "\033[32m[✔]\033[0m Done."
 ```
 
 ## Usage

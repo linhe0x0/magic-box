@@ -7,9 +7,9 @@ A personal configuration file for http://editorconfig.org
 Use `curl` or `wget` to download this file into the project directory.
 
 ```bash
-curl https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/editorconfig/.editorconfig -o .editorconfig
+curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/editorconfig/.editorconfig -o .editorconfig && echo "\033[32m[✔]\033[0m Done."
 ```
 
 ```bash
-wget https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/editorconfig/.editorconfig -O .editorconfig
+wget -q --show-progress https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/editorconfig/.editorconfig -O .editorconfig && echo "\033[32m[✔]\033[0m Done."
 ```
