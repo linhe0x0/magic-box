@@ -13,3 +13,5 @@ wget -q --show-progress https://raw.githubusercontent.com/sqrthree/magic-box/mas
 ```
 
 2. Adjust with your own configuration like `server_name`, `root`. (Maybe you also need to adjust the port and log dir.)
+
+3. Note that if you are using HTTPS, the listen directive should be set to port 443 instead of 80.
