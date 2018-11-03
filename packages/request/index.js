@@ -41,14 +41,21 @@ instance.interceptors.response.use(
     return Promise.resolve(response.data)
   },
   err => {
-    // Error handler for 401.
-    if (err.response.status === 401) {
-      console.error('Status 401')
+    if (err.response) {
+      // Error handler for 401.
+      if (err.response.status === 401) {
+        console.error('Status 401')
+
+        // Redirect to login page or somewhere.
+        // window.location.href = '/auth/login'
+      }
+
+      err.response.data.status = err.response.status
+
+      return Promise.reject(err.response.data)
+    } else {
+      return Promise.reject(err)
     }
-
-    err.response.data.status = err.response.status
-
-    return Promise.reject(err.response.data)
   }
 )
 
