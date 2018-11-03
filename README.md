@@ -32,4 +32,10 @@
 
 [![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)]()
 
-> Dynamically load assets into your views from your `manifest.json` manifest revision file.
+> Dynamically load assets into your views from your `manifest.json` manifest revision file
+
+#### [request](./packages/request)
+
+[![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)]()
+
+> An opinionated axios wrappre with some interceptors.
