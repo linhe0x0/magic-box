@@ -38,4 +38,4 @@
 
 [![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)]()
 
-> An opinionated axios wrappre with some interceptors.
+> An opinionated [axios](https://github.com/axios/axios) wrapper with some interceptors.
