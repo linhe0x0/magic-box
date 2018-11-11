@@ -11,7 +11,7 @@ const configurations = {
 
   useAccessToken: true,
   getAccessToken() {
-    return window.localStorage.getItem('access_token')
+    return window.localStorage.getItem('accessToken')
   },
 }
 
