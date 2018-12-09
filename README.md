@@ -12,7 +12,7 @@
 
 #### [nginx-to-node](./packages/nginx-to-node)
 
-[![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)](./packages/nginx-to-node)
+[![](https://img.shields.io/badge/version-v0.1.1-brightgreen.svg)](./packages/nginx-to-node)
 
 > Configure Nginx as a web server and reverse proxy for Nodejs application.
 
