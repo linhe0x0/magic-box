@@ -24,9 +24,9 @@ curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/pr
 echo "\033[1;34m==>\033[0m Install dependencies"
 
 if $shouldUseYarn; then
-  yarn add --dev eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-prettier prettier
+  yarn add --dev eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-prettier prettier @sqrtthree/prettier-config
 else
-  npm install --dev eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-prettier prettier
+  npm install --save-dev eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-prettier prettier @sqrtthree/prettier-config
 fi
 
 echo "\033[1;34m==>\033[0m Additionally, you need to add the following script to package.json:"
