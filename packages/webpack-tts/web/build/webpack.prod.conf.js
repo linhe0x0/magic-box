@@ -36,6 +36,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             loader: 'sass-loader',
             options: {
               outputStyle: 'compressed',
+              implementation: require('sass'),
             },
           },
         ],

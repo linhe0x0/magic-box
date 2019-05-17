@@ -22,7 +22,7 @@ const assetsPath = function(_path) {
 }
 
 module.exports = {
-  mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: entries,
   output: {
     publicPath:

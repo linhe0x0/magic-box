@@ -3,8 +3,6 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const proxy = require('http-proxy-middleware')
-const convert = require('koa-connect')
 
 const baseWebpackConfig = require('./webpack.base.conf')
 const config = require('../config')
@@ -28,31 +26,29 @@ module.exports = merge(baseWebpackConfig, {
               sourceMap: config.dev.cssSourceMap,
             },
           },
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+            },
+          },
         ],
       },
     ],
   },
 
-  // https://github.com/webpack-contrib/webpack-serve#serveoptions
-  serve: {
-    dev: {
-      publicPath: config.dev.assetsPublicPath,
-      logLevel: 'silent',
-    },
+  // https://webpack.js.org/configuration/dev-server/
+  devServer: {
     host,
     port,
-    hot: {
-      logLevel: 'silent',
-    },
-    logLevel: 'silent',
-    open: config.dev.autoOpenBrowser && {
-      path: config.dev.assetsPublicPath + 'index.js',
-    },
-    add: (app, middleware, options) => {
-      Object.keys(config.dev.proxyTable).forEach(prefixURL => {
-        app.use(convert(proxy(prefixURL, config.dev.proxyTable[prefixURL])))
-      })
+    hot: true,
+    quiet: true,
+    open: config.dev.autoOpenBrowser,
+    openPage: config.dev.assetsPublicPath.substring(1) + 'index.js',
+    proxy: config.dev.proxyTable,
+    overlay: {
+      warnings: false,
+      errors: config.dev.errorOverlay,
     },
   },
   plugins: [

@@ -1,6 +1,6 @@
 # webpack-tts
 
-[![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)]()
+[![](https://img.shields.io/badge/version-v0.2.0-brightgreen.svg)]()
 
 > Webpack template for traditional technology stack. No react, No vue, But babel and Scss.
 

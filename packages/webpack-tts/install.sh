@@ -1,30 +1,28 @@
 tempDir=.webpack-tts
 defaultAppName=web
 dependencies="\
-  babel-core \
+  @babel/core \
   babel-loader \
-  babel-preset-env \
-  babel-preset-stage-3 \
+  @babel/preset-env \
   copy-webpack-plugin \
   css-loader \
   file-loader \
   friendly-errors-webpack-plugin \
   glob \
-  http-proxy-middleware \
-  koa-connect \
   mini-css-extract-plugin \
-  node-sass-chokidar \
+  sass \
   optimize-css-assets-webpack-plugin \
   postcss-loader \
   sass-loader \
+  autoprefixer \
   style-loader \
   uglifyjs-webpack-plugin \
   url-loader \
   webpack \
-  webpack-command \
+  webpack-cli \
   webpack-manifest-plugin \
   webpack-merge \
-  webpack-serve
+  webpack-dev-server
 "
 
 hasCommand() {
@@ -75,7 +73,7 @@ fi
 echo "\033[1;34m==>\033[0m Additionally, you need to add the following script to package.json:"
 
 echo "
-  \"web:dev\": \"webpack-serve --log-level silent --cache --config web/build/webpack.dev.conf.js\",
+  \"web:dev\": \"webpack-dev-server --progress --cache --config web/build/webpack.dev.conf.js\",
   \"web:build\": \"webpack --run-prod --config web/build/webpack.prod.conf.js\"
 "
 
