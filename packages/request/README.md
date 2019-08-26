@@ -1,6 +1,6 @@
 # Request
 
-[![](https://img.shields.io/badge/version-v0.1.1-brightgreen.svg)]()
+[![](https://img.shields.io/badge/version-v0.1.2-brightgreen.svg)]()
 
 > An opinionated [axios](https://github.com/axios/axios) wrapper with some interceptors.
 

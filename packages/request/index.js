@@ -50,7 +50,14 @@ instance.interceptors.response.use(
         // window.location.href = '/auth/login'
       }
 
+      err.response.data =
+        typeof err.response.data === 'object' ? err.response.data : {}
+
       err.response.data.status = err.response.status
+
+      if (!err.response.data.message) {
+        err.response.data.message = err.response.statusText
+      }
 
       return Promise.reject(err.response.data)
     } else {

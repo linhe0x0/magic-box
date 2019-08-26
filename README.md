@@ -22,14 +22,8 @@
 
 > Integrating Prettier with ESLint.
 
-#### [koa-manifest](./packages/koa-manifest)
-
-[![](https://img.shields.io/badge/version-v0.1.0-brightgreen.svg)]()
-
-> Dynamically load assets into your views from your `manifest.json` manifest revision file
-
 #### [request](./packages/request)
 
-[![](https://img.shields.io/badge/version-v0.1.1-brightgreen.svg)]()
+[![](https://img.shields.io/badge/version-v0.1.2-brightgreen.svg)]()
 
 > An opinionated [axios](https://github.com/axios/axios) wrapper with some interceptors.
