@@ -60,6 +60,10 @@ instance.interceptors.response.use(
       }
 
       return Promise.reject(err.response.data)
+    } else if (err.request) {
+      return Promise.reject(
+        new Error('当前服务暂不可用，请检查网络或稍后重试。')
+      )
     } else {
       return Promise.reject(err)
     }
