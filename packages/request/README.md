@@ -4,6 +4,12 @@
 
 > An opinionated [axios](https://github.com/axios/axios) wrapper with some interceptors.
 
+### Download
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/request/index.js -o request.js
+```
+
 ### Few options
 
 ```
