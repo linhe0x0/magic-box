@@ -47,7 +47,7 @@ instance.interceptors.response.use(
         console.error('Status 401')
 
         // Redirect to login page or somewhere.
-        // window.location.href = '/auth/login'
+        window.location.href = `${process.env.BASE_URL}/auth/login`
       }
 
       err.response.data =
