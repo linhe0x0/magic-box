@@ -2,8 +2,7 @@
 module.exports = {
   plugins: {
     autoprefixer: {
-      browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 8'],
-      flexbox: 'no-2009',
+      Browserslist: ['> 0.5%, last 4 versions, Firefox ESR, not ie < 8'],
     },
   },
 }

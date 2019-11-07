@@ -1,8 +1,8 @@
 # webpack-tts
 
-[![](https://img.shields.io/badge/version-v0.2.0-brightgreen.svg)]()
+[![](https://img.shields.io/badge/version-v1.0.0-brightgreen.svg)]()
 
-> Webpack template for traditional technology stack. No react, No vue, But babel and Scss.
+> Webpack template for traditional technology stack. No react, No vue, But babel and scss.
 
 ## Getting Started
 
@@ -13,7 +13,7 @@ curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/we
 ### Usage
 
 ```bash
-# serve with hot reload at localhost:8080
+# build for development and watch file changes
 npm run web:dev
 
 # build for production with minification

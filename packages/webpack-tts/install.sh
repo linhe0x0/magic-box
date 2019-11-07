@@ -1,28 +1,27 @@
 tempDir=.webpack-tts
 defaultAppName=web
 dependencies="\
-  @babel/core \
-  babel-loader \
-  @babel/preset-env \
-  copy-webpack-plugin \
-  css-loader \
-  file-loader \
-  friendly-errors-webpack-plugin \
-  glob \
-  mini-css-extract-plugin \
-  sass \
-  optimize-css-assets-webpack-plugin \
-  postcss-loader \
-  sass-loader \
-  autoprefixer \
-  style-loader \
-  uglifyjs-webpack-plugin \
-  url-loader \
   webpack \
   webpack-cli \
-  webpack-manifest-plugin \
   webpack-merge \
-  webpack-dev-server
+  webpackbar \
+  html-webpack-plugin \
+  copy-webpack-plugin \
+  clean-webpack-plugin \
+  friendly-errors-webpack-plugin \
+  sass \
+  sass-loader \
+  css-loader \
+  style-loader \
+  postcss-loader \
+  autoprefixer \
+  terser-webpack-plugin \
+  url-loader \
+  webpack-bundle-analyzer \
+  mini-css-extract-plugin \
+  optimize-css-assets-webpack-plugin \
+  image-webpack-loader \
+  glob
 "
 
 hasCommand() {
@@ -73,8 +72,8 @@ fi
 echo "\033[1;34m==>\033[0m Additionally, you need to add the following script to package.json:"
 
 echo "
-  \"web:dev\": \"webpack-dev-server --progress --cache --config web/build/webpack.dev.conf.js\",
-  \"web:build\": \"webpack --run-prod --config web/build/webpack.prod.conf.js\"
+  \"web:dev\": \"cross-env NODE_ENV=development webpack --watch --config build/webpack.dev.conf.js\",
+  \"web:build\": \"cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js\"
 "
 
 echo "\033[32m[✔]\033[0m Done"

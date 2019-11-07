@@ -1,22 +1,18 @@
-const path = require('path')
-const webpack = require('webpack')
 const merge = require('webpack-merge')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const WebpackBar = require('webpackbar')
+
+const config = require('../config')
+const baseWebpackConfig = require('./webpack.base.conf')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
-const baseWebpackConfig = require('./webpack.base.conf')
-const config = require('../config')
-
-const host = process.env.HOST || config.dev.host
-const port = Number(process.env.PORT) || config.dev.port
-
 module.exports = merge(baseWebpackConfig, {
+  mode: 'development',
   devtool: config.dev.devtool,
-
+  stats: 'none',
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/i,
         use: [
           'style-loader',
           {
@@ -30,43 +26,12 @@ module.exports = merge(baseWebpackConfig, {
             loader: 'sass-loader',
             options: {
               implementation: require('sass'),
+              sourceMap: config.prod.cssSourceMap,
             },
           },
         ],
       },
     ],
   },
-
-  // https://webpack.js.org/configuration/dev-server/
-  devServer: {
-    host,
-    port,
-    hot: true,
-    quiet: true,
-    open: config.dev.autoOpenBrowser,
-    openPage: config.dev.assetsPublicPath.substring(1) + 'index.js',
-    proxy: config.dev.proxyTable,
-    overlay: {
-      warnings: false,
-      errors: config.dev.errorOverlay,
-    },
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-    new webpack.NoEmitOnErrorsPlugin(),
-    // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.dev.assetsSubDirectory,
-        ignore: ['.*'],
-      },
-    ]),
-    new FriendlyErrorsPlugin({
-      compilationSuccessInfo: {
-        messages: [`Your application is running here: http://${host}:${port}`],
-      },
-    }),
-  ],
+  plugins: [new WebpackBar(), new FriendlyErrorsPlugin()],
 })

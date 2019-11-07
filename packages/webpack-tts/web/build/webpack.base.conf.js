@@ -1,51 +1,71 @@
 const path = require('path')
+const _ = require('lodash')
 const glob = require('glob')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const consola = require('consola')
 
 const config = require('../config')
 
-const entryPath = path.resolve(__dirname, '../src/scripts/pages/**/*.js')
-const entries = {}
+const isProdEnv = process.env.NODE_ENV === 'production'
 
-glob.sync(entryPath).forEach(function(filePath) {
-  const { name } = path.parse(filePath)
+const srcDir = path.resolve(__dirname, '../src')
+const entryPath = path.resolve(srcDir, './**/index.js')
+const outputDir = isProdEnv ? config.prod.outputDir : config.dev.outputDir
+const viewExtension = isProdEnv
+  ? config.prod.viewExtension
+  : config.dev.viewExtension
+const assetsPublicPath = isProdEnv
+  ? config.prod.assetsPublicPath
+  : config.dev.assetsPublicPath
 
-  entries[name] = filePath
-})
+const assetsPath = function(target) {
+  const assetsSubDirectory = isProdEnv
+    ? config.prod.assetsSubDirectory
+    : config.dev.assetsSubDirectory
 
-const assetsPath = function(_path) {
-  const assetsSubDirectory =
-    process.env.NODE_ENV === 'production'
-      ? config.build.assetsSubDirectory
-      : config.dev.assetsSubDirectory
-
-  return path.posix.join(assetsSubDirectory, _path)
+  return path.posix.join(assetsSubDirectory, target)
 }
 
-module.exports = {
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+const entries = {}
+const templates = {}
+
+glob.sync(entryPath).forEach(function(filePath) {
+  const { dir } = path.parse(filePath)
+  const name = path.relative(srcDir, dir)
+
+  entries[name] = filePath
+  templates[name] = path.resolve(dir, `./index.${viewExtension}`)
+})
+
+const maxLength = _.max(_.map(_.keys(templates), item => item.length))
+
+consola.info('Template List that will be outputed to views directory:')
+consola.info('')
+
+_.map(templates, (value, key) => {
+  consola.info(
+    `  ${_.padEnd(key, maxLength)} <== ${path.relative(srcDir, value)}`
+  )
+})
+
+consola.info('')
+
+const webpackConfig = {
+  mode: process.env.NODE_ENV || 'production',
   entry: entries,
   output: {
-    publicPath:
-      process.env.NODE_ENV === 'production'
-        ? config.build.assetsPublicPath
-        : config.dev.assetsPublicPath,
-    filename: '[name].js',
-    path: config.build.assetsRoot,
+    publicPath: assetsPublicPath || '/mobile/',
+    filename: 'scripts/[name].[contenthash:6].js',
+    chunkFilename: 'scripts/[id].[contenthash:6].js',
+    path: outputDir,
   },
   resolve: {
     extensions: ['.js'],
-    alias: {
-      '@': path.resolve(__dirname, '../src/scripts/components'),
-      '~': path.resolve(__dirname, '../src/styles/pages'),
-    },
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [path.resolve(__dirname, '../src')],
-      },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
@@ -72,4 +92,30 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new CopyPlugin(
+      [
+        {
+          from: path.resolve(srcDir, '../public'),
+          to: outputDir,
+        },
+      ],
+      {
+        copyUnmodified: true,
+      }
+    ),
+  ],
 }
+
+_.forEach(templates, (value, key) => {
+  webpackConfig.plugins.push(
+    new HtmlWebpackPlugin({
+      template: value,
+      filename: `views/${key}.${viewExtension}`,
+      chunks: [key],
+    })
+  )
+})
+
+module.exports = webpackConfig
