@@ -27,9 +27,3 @@
 [![](https://img.shields.io/badge/version-v0.1.2-brightgreen.svg)]()
 
 > An opinionated [axios](https://github.com/axios/axios) wrapper with some interceptors.
-
-### webpack-tts
-
-[![](https://img.shields.io/badge/version-v1.0.0-brightgreen.svg)]()
-
-> Webpack template for traditional technology stack. No react, No vue, But babel and scss.
