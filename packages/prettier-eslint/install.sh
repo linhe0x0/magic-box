@@ -1,16 +1,7 @@
 #!/bin/bash
+shouldUseYarn=false
 
-hasCommand() {
-  if command -v $1 > /dev/null 2>&1; then
-    return 0
-  else
-    return 1
-  fi
-}
-
-shouldUseYarn=true
-
-if hasCommand yarn; then
+if [ -f "yarn.lock" ]; then
   shouldUseYarn=true
 else
   shouldUseYarn=false
