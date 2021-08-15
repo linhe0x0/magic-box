@@ -18,7 +18,7 @@
 
 #### [prettier-eslint](./packages/prettier-eslint)
 
-[![](https://img.shields.io/badge/version-v0.2.0-brightgreen.svg)](./packages/prettier-eslint)
+[![](https://img.shields.io/badge/version-v1.0.0-brightgreen.svg)](./packages/prettier-eslint)
 
 > Integrating Prettier with ESLint.
 
