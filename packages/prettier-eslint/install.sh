@@ -10,7 +10,7 @@ fi
 echo "\033[1;34m==>\033[0m Download configurations"
 
 curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/prettier-eslint/.prettierrc -o .prettierrc
-curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/prettier-eslint/.eslintrc -o .eslintrc
+curl -sL https://raw.githubusercontent.com/sqrthree/magic-box/master/packages/prettier-eslint/.eslintrc.js -o .eslintrc.js
 
 echo "\033[1;34m==>\033[0m Install dependencies"
 
