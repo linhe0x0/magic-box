@@ -11,10 +11,10 @@
   "author": "sqrtthree <imsqrtthree@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@sqrtthree/eslint-config-base": "^0.1.1",
+    "@sqrtthree/eslint-config-base": "^0.2.0",
     "@sqrtthree/prettier-config": "^2.0.1",
-    "eslint": "^7.32.0",
-    "prettier": "^2.3.2"
+    "eslint": "^8.0.1",
+    "prettier": "^2.4.1"
   },
   "dependencies": {}
 }
