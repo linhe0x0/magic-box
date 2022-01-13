@@ -20,10 +20,9 @@ else
   npm install --save-dev eslint prettier @sqrtthree/eslint-config-base
 fi
 
-echo "\033[1;34m==>\033[0m Additionally, you need to add the following script to package.json:"
-echo "
-  \"lint\": \"eslint ./\",
-  \"lint-with-fix\": \"eslint --fix ./\"
-"
+echo "\033[1;34m==>\033[0m Add script to package.json"
+
+npm set-script lint "eslint ./"
+npm set-script lint-with-fix "eslint --fix ./"
 
 echo "\033[32m[✔]\033[0m Done"
