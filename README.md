@@ -21,9 +21,3 @@
 [![](https://img.shields.io/badge/version-v1.0.0-brightgreen.svg)](./packages/prettier-eslint)
 
 > Integrating Prettier with ESLint.
-
----
-
-> [sqrtthree.com](http://sqrtthree.com/) &nbsp;&middot;&nbsp;
-> GitHub [@sqrthree](https://github.com/sqrthree) &nbsp;&middot;&nbsp;
-> Twitter [@sqrtthree](https://twitter.com/sqrtthree)
